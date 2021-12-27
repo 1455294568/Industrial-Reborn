@@ -27,6 +27,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     NANO("nano", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> {
         return Ingredient.of(ItemStack.EMPTY);
+    }),
+
+    QUANTUM("quantum", 50, new int[]{13, 16, 18, 13}, 10, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> {
+        return Ingredient.of(ItemStack.EMPTY);
     });
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
