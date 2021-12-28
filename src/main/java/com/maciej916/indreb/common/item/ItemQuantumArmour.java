@@ -109,16 +109,15 @@ public class ItemQuantumArmour extends ItemElectricArmour {
         int damageLimit = Integer.MAX_VALUE;
         if (energyPerDamage > 0) damageLimit = (int)Math.min(damageLimit, 25.0D * this.getEnergy(armor).energyStored() / energyPerDamage);
 
-        /*
-        if (source == DamageSource.field_76379_h) {
+        if (source == DamageSource.FALL) {
 
-            if (this.field_77881_a == EntityEquipmentSlot.FEET)
+            if (this.getSlot() == EquipmentSlot.FEET)
                 return new ISpecialArmor.ArmorProperties(10, 1.0D, damageLimit);
-            if (this.field_77881_a == EntityEquipmentSlot.LEGS) {
+            if (this.getSlot() == EquipmentSlot.LEGS) {
                 return new ISpecialArmor.ArmorProperties(9, 0.8D, damageLimit);
             }
         }
-        */
+
         double absorptionRatio = getBaseAbsorptionRatio() * getDamageAbsorptionRatio();
         return new ISpecialArmor.ArmorProperties(8, absorptionRatio, damageLimit);
     }
