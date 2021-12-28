@@ -199,6 +199,11 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.NANO_LEGGINGS, "armor/nano_leggings");
         createGeneratedTexture(ModItems.NANO_BOOTS, "armor/nano_boots");
 
+        createGeneratedTexture(ModItems.QUANTUM_HELMET, "armor/quantum_helmet");
+        createGeneratedTexture(ModItems.QUANTUM_CHESTPLATE, "armor/quantum_chestplate");
+        createGeneratedTexture(ModItems.QUANTUM_LEGGINGS, "armor/quantum_leggings");
+        createGeneratedTexture(ModItems.QUANTUM_BOOTS, "armor/quantum_boots");
+
         createGeneratedTexture(ModItems.NIGHTVISION_GOGGLES, "armor/nightvision_goggles");
         createGeneratedTexture(ModItems.RUBBER_BOOTS, "armor/rubber_boots");
     }

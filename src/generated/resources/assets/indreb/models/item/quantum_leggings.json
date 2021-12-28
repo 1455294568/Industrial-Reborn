@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "indreb:item/armor/quantum_leggings",
+    "layer1": "indreb:item/armor/quantum_leggings_overlay"
+  }
+}

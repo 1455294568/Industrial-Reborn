@@ -212,6 +212,18 @@ public abstract class ItemElectricArmour extends IndRebArmour implements IElectr
         super.readShareTag(stack, nbt);
     }
 
+    @Override
+    public ISpecialArmor.ArmorProperties getProperties(LivingEntity player, ItemStack armor, DamageSource source, float damage, int slot) {
+        double absorptionRatio = getBaseAbsorptionRatio() * getDamageAbsorptionRatio();
+        int energyPerDamage = getEnergyPerDamage();
+
+        int damageLimit = Integer.MAX_VALUE;
+        if (energyPerDamage > 0)
+            damageLimit = (int) (int)Math.min(damageLimit, 25.0D * this.getEnergy(armor).energyStored() / energyPerDamage);
+
+        return new ISpecialArmor.ArmorProperties(0, absorptionRatio, damageLimit);
+    }
+
     public int getEnergyPerDamage() {
         return Integer.MAX_VALUE;
     }

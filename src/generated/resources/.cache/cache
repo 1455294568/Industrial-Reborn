@@ -225,6 +225,10 @@ eb27e73128f4f637088e67852b7cfa3294e46c9d assets/indreb/models/item/painter_red.j
 f1647d95aadb38df9b918535087a857d14493e2e assets/indreb/models/item/painter_white.json
 dbaceb4214b724a3138514d84a693dec473de0a1 assets/indreb/models/item/painter_yellow.json
 6efadc95d45053208c1f90fc90d5f8cb8f3bd9be assets/indreb/models/item/power_unit.json
+9baf2e0fee325f40e60a28ee32c90ea541232849 assets/indreb/models/item/quantum_boots.json
+9d3504f1091791cebb51b63a6c939f92d87e554e assets/indreb/models/item/quantum_chestplate.json
+6c1ec1c7c99cf4faf9af7df3b27420045c7d5e3a assets/indreb/models/item/quantum_helmet.json
+588f42ec55e5021a7f7eff8ecff406d9a10ebc27 assets/indreb/models/item/quantum_leggings.json
 ae5e574f198927b019b187334f52555cc8bcbef9 assets/indreb/models/item/quantum_saber.json
 32136ca99c7d1b7c9ccfb83196077bd66d5975d4 assets/indreb/models/item/quantum_solar_generator.json
 b01d18782dd5e3460ae21079e8be93494da33707 assets/indreb/models/item/raw_tin.json
@@ -987,7 +991,7 @@ b50b590958a7b637ec81dac89dc4d18f072fc353 data/indreb/recipes/machines/alloy_smel
 455bcfbc522b89d917e7af46fab145368292f43c data/indreb/recipes/machines/iron_furnace.json
 e80d84eaf4d249f6ae23d76b6e9a2dc113284fec data/indreb/recipes/machines/recycler.json
 c50e5d9aa1008a90eb34890e9ecf3c987d547bd5 data/indreb/recipes/machines/sawmill.json
-12247e54a39b8e5ebae19356d56df1a6210870f8 data/indreb/recipes/recycling/scrap.json
+e992f58282304967d7e33014c68bf65cdc71daae data/indreb/recipes/recycling/scrap.json
 69551e33c9d0887e792685f4f9c4d77e18d42d08 data/indreb/recipes/sawing/acacia_log_acacia_planks.json
 5d87dcd403274e5ecf29a27b264422e1d1eedac8 data/indreb/recipes/sawing/armour/leather_boots_leather.json
 ed0e8c6a15e745c29c0957746be210f275c01eb9 data/indreb/recipes/sawing/armour/leather_chestplate_leather.json

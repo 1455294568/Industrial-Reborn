@@ -96,6 +96,11 @@ public class ItemQuantumArmour extends ItemElectricArmour {
                 player.clearFire();
                 break;
             case LEGS:
+                stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
+                    if (energy.energyStored() > 1000 && (player.isOnGround() || player.isInWater())) {
+
+                    }
+                });
                 break;
             case FEET:
 
