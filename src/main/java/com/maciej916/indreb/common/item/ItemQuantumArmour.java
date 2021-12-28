@@ -56,13 +56,6 @@ public class ItemQuantumArmour extends IndRebArmour implements IElectricItem {
         this.energyType = energyType;
         this.energyTier = energyTier;
 
-        potionRemovalCost.put(MobEffects.WEAKNESS, 10000);
-        potionRemovalCost.put(MobEffects.MOVEMENT_SLOWDOWN, 10000);
-        potionRemovalCost.put(MobEffects.UNLUCK, 25000);
-        potionRemovalCost.put(MobEffects.BLINDNESS, 25000);
-        potionRemovalCost.put(MobEffects.CONFUSION, 10000);
-        potionRemovalCost.put(MobEffects.HARM, 25000);
-        potionRemovalCost.put(MobEffects.DIG_SLOWDOWN, 25000);
         potionRemovalCost.put(MobEffects.WITHER, 25000);
         potionRemovalCost.put(MobEffects.POISON, 25000);
 
@@ -219,18 +212,23 @@ public class ItemQuantumArmour extends IndRebArmour implements IElectricItem {
         //super.onArmorTick(stack, world, player);
 
         var slot = this.getSlot();
-        switch (slot)
-        {
+        int air;
+
+        switch (slot) {
             case HEAD:
+                air = player.getAirSupply();
                 stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
-                    for (MobEffectInstance effect : new LinkedList<>(player.getActiveEffects()))
-                    {
+
+                    if (energy.energyStored() > 1000 && air < 100) {
+                        player.setAirSupply(air + 200);
+                        energy.consumeEnergy(1000, false);
+                    }
+
+                    for (MobEffectInstance effect : new LinkedList<>(player.getActiveEffects())) {
                         var eff = effect.getEffect();
                         var cost = potionRemovalCost.get(eff);
-                        if (cost != null)
-                        {
-                            if (this.energyStored >= cost)
-                            {
+                        if (cost != null) {
+                            if (this.energyStored >= cost) {
                                 energy.consumeEnergy(cost, false);
                                 player.removeEffect(eff);
                             }
@@ -239,6 +237,7 @@ public class ItemQuantumArmour extends IndRebArmour implements IElectricItem {
                 });
                 break;
             case CHEST:
+                player.clearFire();
                 break;
             case LEGS:
                 break;
