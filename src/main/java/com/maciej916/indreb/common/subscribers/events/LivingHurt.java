@@ -19,7 +19,10 @@ public class LivingHurt {
         float amount = event.getAmount();
         if (!event.getSource().isBypassInvul() && event.getEntityLiving() instanceof Player player) {
             amount = ISpecialArmor.ArmorProperties.applyArmor(player, player.getInventory().armor, event.getSource(), amount);
+            float f = amount;
+            amount = Math.max(amount - player.getAbsorptionAmount(), 0.0F);
+            player.setAbsorptionAmount(player.getAbsorptionAmount() - (f - amount));
         }
-        return amount;
+        return Math.round(amount);
     }
 }

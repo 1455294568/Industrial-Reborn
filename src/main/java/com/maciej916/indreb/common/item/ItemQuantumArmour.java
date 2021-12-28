@@ -46,7 +46,7 @@ public class ItemQuantumArmour extends ItemElectricArmour {
     protected static final Map<MobEffect, Integer> potionRemovalCost = new IdentityHashMap<>();
 
     public ItemQuantumArmour(EquipmentSlot pSlot, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier) {
-        super(pSlot, energyStored, maxEnergy, energyType, energyTier, ModArmorMaterials.NANO);
+        super(pSlot, energyStored, maxEnergy, energyType, energyTier, ModArmorMaterials.QUANTUM);
 
         potionRemovalCost.put(MobEffects.WITHER, 25000);
         potionRemovalCost.put(MobEffects.POISON, 25000);
@@ -85,7 +85,7 @@ public class ItemQuantumArmour extends ItemElectricArmour {
                         var cost = potionRemovalCost.get(eff);
                         if (cost != null) {
                             if (this.energyStored >= cost) {
-                                energy.consumeEnergy(cost, false);
+                                energy.consumeEnergy(cost.intValue(), false);
                                 player.removeEffect(eff);
                             }
                         }
