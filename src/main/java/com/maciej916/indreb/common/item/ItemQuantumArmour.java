@@ -11,6 +11,7 @@ import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
+import com.maciej916.indreb.common.util.Keyboard;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
@@ -35,6 +36,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.jetbrains.annotations.NotNull;
 
@@ -68,6 +70,8 @@ public class ItemQuantumArmour extends ItemElectricArmour {
         //super.onArmorTick(stack, world, player);
 
         var slot = this.getSlot();
+        CompoundTag nbtData = stack.getOrCreateTag();
+
         int air;
 
         switch (slot) {
@@ -97,8 +101,28 @@ public class ItemQuantumArmour extends ItemElectricArmour {
                 break;
             case LEGS:
                 stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
-                    if (energy.energyStored() > 1000 && (player.isOnGround() || player.isInWater())) {
+                    if (energy.energyStored() > 1000 && (player.isOnGround() || player.isInWater())
+                       && Keyboard.getInstance().isForwardKeyDown(player) && player.isSprinting()) {
 
+                        byte speedTicker = nbtData.getByte("speedTicker");
+                              speedTicker = (byte)(speedTicker + 1);
+
+                              if (speedTicker >= 10) {
+                                  speedTicker = 0;
+                                  energy.consumeEnergy(1000, false);
+                              }
+
+                              nbtData.putByte("speedTicker", speedTicker);
+
+                        float speed = 0.22F;
+
+                        if (player.isInWater())  {
+                            speed = 0.1F;
+                        }
+
+                        if (speed > 0.0F) {
+                            player.moveRelative(speed, new Vec3(0.0F, 0.0F, 0.0F));
+                        }
                     }
                 });
                 break;
