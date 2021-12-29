@@ -118,10 +118,14 @@ public class ItemQuantumArmour extends ItemElectricArmour {
 
                         if (player.isInWater())  {
                             speed = 0.1F;
+                            if (Keyboard.getInstance().isJumpKeyDown(player)) {
+                                Vec3 delMov = player.getDeltaMovement();
+                                player.setDeltaMovement(new Vec3(delMov.x, delMov.y + 0.10000000149011612, delMov.z));
+                            }
                         }
 
                         if (speed > 0.0F) {
-                            player.moveRelative(speed, new Vec3(0.0F, 0.0F, 0.0F));
+                            player.moveRelative(speed, new Vec3(0.0F, 0.0F, 1.0F));
                         }
                     }
                 });

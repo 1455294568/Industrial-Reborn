@@ -22,6 +22,7 @@ import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.item.ItemEnergy;
 import com.maciej916.indreb.common.item.ItemNanosaber;
 import com.maciej916.indreb.common.item.ItemQuantumsaber;
+import com.maciej916.indreb.common.registries.KeyBindings;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModContainers;
 import com.maciej916.indreb.common.registries.ModItems;
@@ -39,6 +40,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -49,6 +51,9 @@ public final class ClientModEventSubscriber {
 	@SubscribeEvent
 	public static void onFMLClientSetupEvent(final FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
+
+			ClientRegistry.registerKeyBinding(KeyBindings.BOOST_KEY);
+			ClientRegistry.registerKeyBinding(KeyBindings.ALT_KEY);
 
 			MenuScreens.register(ModContainers.GENERATOR, ScreenGenerator::new);
 			MenuScreens.register(ModContainers.SOLAR_GENERATOR, ScreenSolarGenerator::new);

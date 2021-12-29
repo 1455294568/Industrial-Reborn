@@ -7,7 +7,9 @@ import com.maciej916.indreb.common.energy.provider.EnergyNetwork;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
+import com.maciej916.indreb.common.util.Keyboard;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
@@ -46,6 +48,14 @@ public class PlayerTickEvent {
                         }
                     }
                 }
+            }
+        } else {
+            // key press detect
+            if (Minecraft.getInstance().options.keyJump.isDown()) {
+                Keyboard.getInstance().processKeyUpdaye(player, Keyboard.jump);
+            }
+            if (Minecraft.getInstance().options.keyUp.isDown()) {
+                Keyboard.getInstance().processKeyUpdaye(player, Keyboard.forward);
             }
         }
     }
