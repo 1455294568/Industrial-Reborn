@@ -21,7 +21,7 @@ public class Keyboard {
         return instance;
     }
 
-    public void processKeyUpdaye(Player player, int key) {
+    public void processKeyUpdate(Player player, int key) {
         Set<Integer> keys = new HashSet<>();
 
         if ((key & alt) == alt) {

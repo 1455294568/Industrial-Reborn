@@ -54,6 +54,7 @@ public final class ClientModEventSubscriber {
 
 			ClientRegistry.registerKeyBinding(KeyBindings.BOOST_KEY);
 			ClientRegistry.registerKeyBinding(KeyBindings.ALT_KEY);
+			ClientRegistry.registerKeyBinding(KeyBindings.HUB_MODE_KEY);
 
 			MenuScreens.register(ModContainers.GENERATOR, ScreenGenerator::new);
 			MenuScreens.register(ModContainers.SOLAR_GENERATOR, ScreenSolarGenerator::new);

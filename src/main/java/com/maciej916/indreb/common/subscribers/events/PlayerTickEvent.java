@@ -63,7 +63,7 @@ public class PlayerTickEvent {
             if (KeyBindings.BOOST_KEY.isDown()) {
                 keys |= Keyboard.boost;
             }
-            Keyboard.getInstance().processKeyUpdaye(player, keys);
+            Keyboard.getInstance().processKeyUpdate(player, keys);
         }
     }
 }
