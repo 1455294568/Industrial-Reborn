@@ -299,7 +299,10 @@
 
   "tooltip.indreb.cable_unisolated": "This cable can electrocute you!",
 
-
+  "_comment": "Keybinding",
+  "keybingding.indreb.category": "Industrial Reborn",
+  "keybingding.indreb.boost_key": "Boost key",
+  "keybingding.indreb.mode_switch_key": "Mode switch key",
 
 
   "test.indreb.test": "%s"

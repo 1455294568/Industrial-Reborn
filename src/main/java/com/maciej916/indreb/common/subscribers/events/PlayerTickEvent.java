@@ -5,10 +5,12 @@ import com.maciej916.indreb.common.block.impl.cable.BlockCable;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
 import com.maciej916.indreb.common.energy.provider.EnergyNetwork;
 import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.registries.KeyBindings;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.Keyboard;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
@@ -51,12 +53,17 @@ public class PlayerTickEvent {
             }
         } else {
             // key press detect
+            int keys = 0;
             if (Minecraft.getInstance().options.keyJump.isDown()) {
-                Keyboard.getInstance().processKeyUpdaye(player, Keyboard.jump);
+                keys |= Keyboard.jump;
             }
             if (Minecraft.getInstance().options.keyUp.isDown()) {
-                Keyboard.getInstance().processKeyUpdaye(player, Keyboard.forward);
+                keys |= Keyboard.forward;
             }
+            if (KeyBindings.BOOST_KEY.isDown()) {
+                keys |= Keyboard.boost;
+            }
+            Keyboard.getInstance().processKeyUpdaye(player, keys);
         }
     }
 }

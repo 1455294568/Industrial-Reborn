@@ -294,8 +294,11 @@
 
   "tooltip.indreb.cable_unisolated": "这个线缆会导致触电!",
 
+  "_comment": "Keybinding",
+  "keybingding.indreb.category": "工业重生",
+  "keybingding.indreb.boost_key": "加速键",
+  "keybingding.indreb.mode_switch_key": "模式切换键",
 
 
-
-  "test.indreb.test": "%s",
+  "test.indreb.test": "%s"
 }

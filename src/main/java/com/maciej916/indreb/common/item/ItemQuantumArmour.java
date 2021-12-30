@@ -1,46 +1,27 @@
 package com.maciej916.indreb.common.item;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-import com.maciej916.indreb.common.energy.impl.CapEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumEnergyType;
-import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
-import com.maciej916.indreb.common.interfaces.item.IElectricItem;
+import com.maciej916.indreb.common.interfaces.item.ISpecialArmor;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.Keyboard;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
-import com.maciej916.indreb.common.util.TextComponentUtil;
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
 import java.util.*;
 
 public class ItemQuantumArmour extends ItemElectricArmour {

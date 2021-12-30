@@ -5,7 +5,7 @@ import org.lwjgl.glfw.GLFW;
 
 public class KeyBindings {
 
-    public static KeyMapping BOOST_KEY = new KeyMapping("key.boost", GLFW.GLFW_KEY_LEFT_CONTROL, "key.categories.indreb");
+    public static KeyMapping BOOST_KEY = new KeyMapping("keybingding.indreb.boost_key", GLFW.GLFW_KEY_LEFT_CONTROL, "keybingding.indreb.category");
 
-    public static KeyMapping ALT_KEY = new KeyMapping("key.alt", GLFW.GLFW_KEY_LEFT_ALT, "key.categories.indreb");
+    public static KeyMapping ALT_KEY = new KeyMapping("keybingding.indreb.mode_switch_key", GLFW.GLFW_KEY_LEFT_ALT, "keybingding.indreb.category");
 }
