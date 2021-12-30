@@ -9,6 +9,7 @@ import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.Keyboard;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
@@ -53,11 +54,10 @@ public class ItemQuantumArmour extends ItemElectricArmour {
         var slot = this.getSlot();
         CompoundTag nbtData = stack.getOrCreateTag();
 
-        int air;
-
         switch (slot) {
             case HEAD:
-                air = player.getAirSupply();
+                int air = player.getAirSupply();
+
                 stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
 
                     if (energy.energyStored() > 1000 && air < 100) {
@@ -65,11 +65,34 @@ public class ItemQuantumArmour extends ItemElectricArmour {
                         energy.consumeEnergy(1000, false);
                     }
 
+                    byte toggleTimer = nbtData.getByte("toggleTimer");
+                    short hubmode = nbtData.getShort("HudMode");
+                    boolean nightvision = nbtData.getBoolean("Nightvision");
+
+                    if (Keyboard.getInstance().isAltKeyDown(player) && Keyboard.getInstance().isModeSwitchKeyDown(player) && toggleTimer == 0) {
+                        nightvision = !nightvision;
+                        toggleTimer = 10;
+                        nbtData.putBoolean("Nightvision", nightvision);
+                    }
+
+                    if (nightvision && energy.energyStored() > 1) {
+                        energy.consumeEnergy(1, false);
+                        BlockPos pos = new BlockPos((int)Math.floor(player.position().x), (int)Math.floor(player.position().y), (int)Math.floor(player.position().z));
+                        int skylight = player.getLevel().getLightEmission(pos);
+                        if (skylight > 8) {
+                            player.removeEffect(MobEffects.NIGHT_VISION);
+                            player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0, true, true));
+                        } else {
+                            player.removeEffect(MobEffects.BLINDNESS);
+                            player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 300, 0, true, true));
+                        }
+                    }
+
                     for (MobEffectInstance effect : new LinkedList<>(player.getActiveEffects())) {
                         var eff = effect.getEffect();
                         var cost = potionRemovalCost.get(eff);
                         if (cost != null) {
-                            if (this.energyStored >= cost) {
+                            if (energy.energyStored() >= cost) {
                                 energy.consumeEnergy(cost.intValue(), false);
                                 player.removeEffect(eff);
                             }
