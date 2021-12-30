@@ -7,12 +7,12 @@ import java.util.*;
 public class Keyboard {
 
     public static final int alt = 1;
-    public static final int boost = 1 >> 1;
-    public static final int forward = 1 >> 2;
-    public static final int modeSwitch = 1 >> 3;
-    public static final int jump = 1 >> 4;
-    public static final int sideInventory = 1 >> 5;
-    public static final int hubMode = 1 >> 6;
+    public static final int boost = 2;
+    public static final int forward = 4;
+    public static final int modeSwitch = 8;
+    public static final int jump = 16;
+    public static final int sideInventory = 32;
+    public static final int hubMode = 64;
 
     private final Map<Player, Set<Integer>> playerKeys = new WeakHashMap<>();
     private final static Keyboard instance = new Keyboard();
@@ -31,19 +31,19 @@ public class Keyboard {
             keys.add(boost);
         }
         if ((key & forward) == forward) {
-            keys.add(boost);
+            keys.add(forward);
         }
         if ((key & modeSwitch) == modeSwitch) {
-            keys.add(boost);
+            keys.add(modeSwitch);
         }
         if ((key & jump) == jump) {
-            keys.add(boost);
+            keys.add(jump);
         }
         if ((key & sideInventory) == sideInventory) {
-            keys.add(boost);
+            keys.add(sideInventory);
         }
         if ((key & hubMode) == hubMode) {
-            keys.add(boost);
+            keys.add(hubMode);
         }
 
         playerKeys.put(player, keys);

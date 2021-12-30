@@ -63,6 +63,13 @@ public class PlayerTickEvent {
             if (KeyBindings.BOOST_KEY.isDown()) {
                 keys |= Keyboard.boost;
             }
+            if (KeyBindings.ALT_KEY.isDown()) {
+                keys |= Keyboard.alt;
+            }
+            if (KeyBindings.HUB_MODE_KEY.isDown()) {
+                keys |= Keyboard.modeSwitch;
+            }
+
             Keyboard.getInstance().processKeyUpdate(player, keys);
         }
     }
