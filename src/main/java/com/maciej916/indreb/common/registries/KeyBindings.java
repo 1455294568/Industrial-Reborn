@@ -9,6 +9,6 @@ public class KeyBindings {
 
     public static KeyMapping ALT_KEY = new KeyMapping("keybingding.indreb.alt_key", GLFW.GLFW_KEY_LEFT_ALT, "keybingding.indreb.category");
 
-    public static KeyMapping HUB_MODE_KEY = new KeyMapping("keybingding.indreb.hub_mode_key", GLFW.GLFW_KEY_M, "keybingding.indreb.category");
+    public static KeyMapping HUB_MODE_KEY = new KeyMapping("keybingding.indreb.mode_switch_key", GLFW.GLFW_KEY_M, "keybingding.indreb.category");
 
 }

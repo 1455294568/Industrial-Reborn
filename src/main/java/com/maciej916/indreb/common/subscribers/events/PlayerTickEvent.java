@@ -5,6 +5,8 @@ import com.maciej916.indreb.common.block.impl.cable.BlockCable;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
 import com.maciej916.indreb.common.energy.provider.EnergyNetwork;
 import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.interfaces.item.IElectricItem;
+import com.maciej916.indreb.common.interfaces.item.IJetpack;
 import com.maciej916.indreb.common.registries.KeyBindings;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -14,6 +16,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -71,6 +74,11 @@ public class PlayerTickEvent {
             }
 
             Keyboard.getInstance().processKeyUpdate(player, keys);
+        }
+
+        var stack = player.getItemBySlot(EquipmentSlot.CHEST);
+        if (stack != null && stack.getItem() instanceof IJetpack) {
+
         }
     }
 }
