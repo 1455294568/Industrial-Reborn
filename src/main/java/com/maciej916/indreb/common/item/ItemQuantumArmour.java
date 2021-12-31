@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
+import com.maciej916.indreb.common.interfaces.item.IJetpack;
 import com.maciej916.indreb.common.interfaces.item.ISpecialArmor;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -25,7 +26,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-public class ItemQuantumArmour extends ItemElectricArmour {
+public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
 
     protected static final Map<MobEffect, Integer> potionRemovalCost = new IdentityHashMap<>();
 

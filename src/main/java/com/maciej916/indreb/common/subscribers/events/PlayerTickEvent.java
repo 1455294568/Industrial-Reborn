@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.energy.provider.EnergyNetwork;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.interfaces.item.IJetpack;
+import com.maciej916.indreb.common.item.JetpackLogic;
 import com.maciej916.indreb.common.registries.KeyBindings;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -77,8 +78,8 @@ public class PlayerTickEvent {
         }
 
         var stack = player.getItemBySlot(EquipmentSlot.CHEST);
-        if (stack != null && stack.getItem() instanceof IJetpack) {
-
+        if (stack != null && stack.getItem() instanceof IJetpack jetpack) {
+            JetpackLogic.onArmorTick(player.getLevel(), player, stack, jetpack);
         }
     }
 }

@@ -1,11 +1,13 @@
 package com.maciej916.indreb.common.item;
 
 import com.maciej916.indreb.common.interfaces.item.IJetpack;
+import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.Keyboard;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 public class JetpackLogic {
     public static void onArmorTick(Level world, Player player, ItemStack stack, IJetpack jetpack) {
@@ -44,6 +46,20 @@ public class JetpackLogic {
     }
 
     public static boolean useJetpack(Player player, boolean hoverMode, IJetpack jetpack, ItemStack stack) {
+        stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
+            if (energy.energyStored() < 0) return;
+            //energy.consumeEnergy()
+            int maxFlyHeight = player.getLevel().getMaxBuildHeight() + 20;
+            Vec3 deltaMovement = player.getDeltaMovement();
+            double posY = player.position().y;
+            double flyMotionY = 0.6000000238418579D;
+
+            if (posY > maxFlyHeight) {
+                posY = maxFlyHeight;
+            }
+
+            player.setDeltaMovement(new Vec3(deltaMovement.x, flyMotionY, deltaMovement.z));
+        });
         return false;
     }
 
