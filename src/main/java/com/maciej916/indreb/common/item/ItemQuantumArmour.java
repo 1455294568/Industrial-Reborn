@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.Keyboard;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
@@ -21,9 +22,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.NotNull;
 
+import java.lang.management.PlatformLoggingMXBean;
 import java.util.*;
 
 public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
@@ -36,6 +43,10 @@ public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
         potionRemovalCost.put(MobEffects.WITHER, 25000);
         potionRemovalCost.put(MobEffects.POISON, 25000);
 
+        if (pSlot == EquipmentSlot.FEET) {
+            MinecraftForge.EVENT_BUS.register(this);
+        }
+
     }
 
     private float getChargeRatio(ItemStack stack) {
@@ -46,6 +57,24 @@ public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
     @Override
     public int getBarWidth(ItemStack pStack) {
         return Math.round(13.0F - ((1 - getChargeRatio(pStack)) * 13.0F));
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOW)
+    public void onEntityLivingFallEvent(LivingFallEvent event) {
+        if (event.getEntity() instanceof Player player) {
+            var stack = player.getItemBySlot(EquipmentSlot.FEET);
+            if (stack != null && stack.getItem() == this) {
+                stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
+                    int fallDamage = Math.max((int) event.getDistance() - 10, 0);
+                    int energyCost = (getEnergyPerDamage() * fallDamage);
+
+                    if (energy.energyStored() >= energyCost) {
+                        energy.consumeEnergy(energyCost, false);
+                        event.setCanceled(true);
+                    }
+                });
+            }
+        }
     }
 
     @Override
@@ -66,20 +95,26 @@ public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
                         energy.consumeEnergy(1000, false);
                     }
 
-                    byte toggleTimer = nbtData.getByte("toggleTimer");
-                    short hubmode = nbtData.getShort("HudMode");
                     boolean nightvision = nbtData.getBoolean("Nightvision");
+                    byte toggleTimer = nbtData.getByte("toggleTimer");
 
-                    if (Keyboard.getInstance().isAltKeyDown(player) && Keyboard.getInstance().isModeSwitchKeyDown(player) && toggleTimer == 0) {
-                        nightvision = !nightvision;
+                    if (Keyboard.getInstance().isAltKeyDown(player)
+                            && Keyboard.getInstance().isModeSwitchKeyDown(player)
+                            && toggleTimer == 0) {
                         toggleTimer = 10;
+                        nightvision = !nightvision;
                         nbtData.putBoolean("Nightvision", nightvision);
+                    }
+
+                    if (toggleTimer > 0) {
+                        toggleTimer = (byte) (toggleTimer - 1);
+                        nbtData.putByte("toggleTimer", toggleTimer);
                     }
 
                     if (nightvision && energy.energyStored() > 1) {
                         energy.consumeEnergy(1, false);
-                        BlockPos pos = new BlockPos((int)Math.floor(player.position().x), (int)Math.floor(player.position().y), (int)Math.floor(player.position().z));
-                        int skylight = player.getLevel().getLightEmission(pos);
+                        BlockPos blockpos = Minecraft.getInstance().getCameraEntity().blockPosition();
+                        int skylight = Minecraft.getInstance().level.getBrightness(LightLayer.BLOCK, blockpos);
                         if (skylight > 8) {
                             player.removeEffect(MobEffects.NIGHT_VISION);
                             player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0, true, true));
