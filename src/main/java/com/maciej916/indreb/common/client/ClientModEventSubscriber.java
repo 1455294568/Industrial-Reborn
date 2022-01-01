@@ -22,6 +22,7 @@ import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.item.ItemEnergy;
 import com.maciej916.indreb.common.item.ItemNanosaber;
 import com.maciej916.indreb.common.item.ItemQuantumsaber;
+import com.maciej916.indreb.common.item.impl.upgrade.ItemDirectionalUpgrade;
 import com.maciej916.indreb.common.registries.KeyBindings;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModContainers;
@@ -36,7 +37,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
@@ -103,7 +103,14 @@ public final class ClientModEventSubscriber {
 			ItemProperties.register(ModItems.NANO_SABER, new ResourceLocation(IndReb.MODID, "active"), (stack, level, living, id) -> ItemNanosaber.isActivated(stack));
 			ItemProperties.register(ModItems.QUANTUM_SABER, new ResourceLocation(IndReb.MODID, "active"), (stack, level, living, id) -> ItemQuantumsaber.isActivated(stack));
 
-
+			ItemProperties.register(ModItems.EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
 		});
 	}
 
