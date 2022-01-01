@@ -49,6 +49,11 @@ public class JetpackLogic {
         stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
             if (energy.energyStored() < 0) return;
             //energy.consumeEnergy()
+
+            if (Keyboard.getInstance().isForwardKeyDown(player)) {
+                                
+            }
+
             int maxFlyHeight = player.getLevel().getMaxBuildHeight() + 20;
             Vec3 deltaMovement = player.getDeltaMovement();
             double posY = player.position().y;

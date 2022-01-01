@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
+import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.interfaces.item.IJetpack;
 import com.maciej916.indreb.common.interfaces.item.ISpecialArmor;
 import com.maciej916.indreb.common.registries.ModCapabilities;
@@ -30,8 +31,8 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.management.PlatformLoggingMXBean;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
 
@@ -79,8 +80,6 @@ public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        //super.onArmorTick(stack, world, player);
-
         var slot = this.getSlot();
         CompoundTag nbtData = stack.getOrCreateTag();
 
@@ -204,5 +203,18 @@ public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
     @Override
     public int getEnergyPerDamage() {
         return 20000;
+    }
+
+    @Override
+    public boolean drainEnergy(ItemStack stack, int amount) {
+        IEnergy energy = CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).getValue();
+        if (energy != null) {
+            int cost = amount + 6;
+            if (energy.energyStored() > amount) {
+                energy.consumeEnergy(cost, false);
+                return true;
+            }
+        }
+        return false;
     }
 }
