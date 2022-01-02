@@ -113,7 +113,7 @@ public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
                     if (nightvision && energy.energyStored() > 1) {
                         energy.consumeEnergy(1, false);
                         BlockPos blockpos = Minecraft.getInstance().getCameraEntity().blockPosition();
-                        int skylight = Minecraft.getInstance().level.getBrightness(LightLayer.BLOCK, blockpos);
+                        int skylight = Minecraft.getInstance().level.getLightEngine().getRawBrightness(blockpos, 0);//.getBrightness(LightLayer.BLOCK, blockpos);
                         if (skylight > 8) {
                             player.removeEffect(MobEffects.NIGHT_VISION);
                             player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0, true, true));
