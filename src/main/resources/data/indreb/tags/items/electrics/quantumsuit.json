@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "indreb:quantum_helmet",
+    "indreb:quantum_chestplate",
+    "indreb:quantum_leggings",
+    "indreb:quantum_boots",
+    "indreb:quantum_saber"
+  ]
+}

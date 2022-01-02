@@ -3,6 +3,7 @@
   "values": [
     "#indreb:batteries/battery",
     "#indreb:electrics/tools",
-    "#indreb:electrics/nanosuit"
+    "#indreb:electrics/nanosuit",
+    "#indreb:electrics/quantumsuit"
   ]
 }
