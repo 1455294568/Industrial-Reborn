@@ -144,6 +144,84 @@ public class Armour extends RecipeProvider {
                 .save(consumer, saveResource("nano_boots"));
 
 
+        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_HELMET)
+                .pattern("rnr")
+                .pattern("ili")
+                .pattern("b b")
+                .define('r', ModBlocks.REINFORCED_GLASS)
+                .define('n', ModItems.NANO_HELMET)
+                .define('i', ModItems.IRIDIUM_PLATE)
+                .define('l', ModItems.LAPOTRON_CRYSTAL)
+                .define('b', ModItems.ADVANCED_CIRCUIT)
+                .group(MODID)
+                .unlockedBy("nano_helmet", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NANO_HELMET))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL))
+                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
+                .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE))
+                .unlockedBy("reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS))
+                .save(consumer, saveResource("quantum_helmet"));
+
+
+        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_CHESTPLATE)
+                .pattern("ana")
+                .pattern("ili")
+                .pattern("iji")
+                .define('a', ModItems.ADVANCED_ALLOY)
+                .define('n', ModItems.NANO_CHESTPLATE)
+                .define('i', ModItems.IRIDIUM_PLATE)
+                .define('l', ModItems.LAPOTRON_CRYSTAL)
+                .define('j', ModItems.ELECTRIC_JETPACK)
+                .group(MODID)
+                .unlockedBy("nano_chestplate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NANO_CHESTPLATE))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL))
+                .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE))
+                .unlockedBy("electric_jetpack", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRIC_JETPACK))
+                .save(consumer, saveResource("quantum_chestplate"));
+
+
+        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_LEGGINGS)
+                .pattern("blb")
+                .pattern("ini")
+                .pattern("g g")
+                .define('b', ModBlocks.BASIC_MACHINE_CASING)
+                .define('l', ModItems.LAPOTRON_CRYSTAL)
+                .define('i', ModItems.IRIDIUM_PLATE)
+                .define('n', ModItems.NANO_LEGGINGS)
+                .define('g', Items.GLOWSTONE_DUST)
+                .group(MODID)
+                .unlockedBy("nano_leggings", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NANO_LEGGINGS))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL))
+                .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE))
+                .save(consumer, saveResource("quantum_leggings"));
+
+
+        ShapedRecipeBuilder.shaped(ModItems.QUANTUM_BOOTS)
+                .pattern("ini")
+                .pattern("rlr")
+                .define('i', ModItems.IRIDIUM_PLATE)
+                .define('n', ModItems.NANO_BOOTS)
+                .define('r', ModItems.RUBBER_BOOTS)
+                .define('l', ModItems.LAPOTRON_CRYSTAL)
+                .group(MODID)
+                .unlockedBy("nano_boots", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NANO_BOOTS))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL))
+                .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE))
+                .save(consumer, saveResource("quantum_boots"));
+
+
+        ShapedRecipeBuilder.shaped(ModItems.ELECTRIC_JETPACK)
+                .pattern("iai")
+                .pattern("ibi")
+                .pattern("g g")
+                .define('i', ModItems.IRON_CASING)
+                .define('a', ModItems.ADVANCED_CIRCUIT)
+                .define('b', ModBlocks.BATTERY_BOX)
+                .define('g', Items.GLOWSTONE_DUST)
+                .group(MODID)
+                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
+                .unlockedBy("battery_box", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BATTERY_BOX))
+                .save(consumer, saveResource("electric_jetpack"));
+
     }
 
 }

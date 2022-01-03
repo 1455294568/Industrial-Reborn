@@ -57,19 +57,9 @@ public class ItemNanoArmour extends ItemElectricArmour{
         }
     }
 
-    private float getChargeRatio(ItemStack stack) {
-        LazyOptionalHelper<IEnergy> cap = CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY);
-        return cap.getIfPresentElse(e -> (float) e.energyStored() / e.maxEnergy(), 0f);
-    }
-
     @Override
     public boolean isBarVisible(ItemStack pStack) {
         return true;
-    }
-
-    @Override
-    public int getBarWidth(ItemStack pStack) {
-        return Math.round(13.0F - ((1 - getChargeRatio(pStack)) * 13.0F));
     }
 
 //    @Override

@@ -121,6 +121,7 @@ e8e3743723a4b97312848dfe57dfddcd39eaca41 assets/indreb/models/item/battery/lapot
 34520134d98f79192dd3c35d1b00b7e763eebc30 assets/indreb/models/item/bronze_axe.json
 4b5386b5af7411684228f607480d23071116529c assets/indreb/models/item/bronze_block.json
 10c3f42e8ce422c341849d305ed9f8d6f9af1891 assets/indreb/models/item/bronze_boots.json
+88fdc64dfe475a3bce19377df468318dcc278946 assets/indreb/models/item/bronze_casing.json
 9422a0e31b6acd40eefb95b9baeb11a42f09773a assets/indreb/models/item/bronze_chestplate.json
 ce2208b445a16bd5be0bb6c2d4e654f8c12f5399 assets/indreb/models/item/bronze_helmet.json
 490633915485ef77480941022414c1cf90672d58 assets/indreb/models/item/bronze_hoe.json
@@ -158,6 +159,7 @@ ab8d753d5ac26a6d5b636bf779a778aca9ee34f0 assets/indreb/models/item/construction_
 f21487da6074938247e50ed54e2c87f4fc0f1b20 assets/indreb/models/item/construction_foam_wall_yellow.json
 bca70384cdb83b0eabb109b320f4b4e7a4c89d40 assets/indreb/models/item/copper_cable.json
 c552ca6cffdb0fc5c238796701dbdcae130e81ee assets/indreb/models/item/copper_cable_insulated.json
+606a86fc1498b3ef5d7eb26371c1133f17af69ac assets/indreb/models/item/copper_casing.json
 1d1d48ba09a7c6060adfbc39150e8d49f1fe9751 assets/indreb/models/item/copper_plate.json
 c522cf361a5bcbd9a7cefd598445c6ffc2d7dce3 assets/indreb/models/item/crushed_copper.json
 ce1406f3ee10796a9c2f548f5cd413974ef9e2ed assets/indreb/models/item/crushed_gold.json
@@ -175,6 +177,7 @@ fbdfea9ec47411d92206d855bf6a073e86958dbe assets/indreb/models/item/deepslate_dus
 4bd6932f212b20c59d45d05dda2361622008fd40 assets/indreb/models/item/ejector_upgrade.json
 544109f5c167e927f74b0ca420798b59232861ec assets/indreb/models/item/electric_furnace.json
 7f559e2a554e9b8b85011d338c668af4544bfc75 assets/indreb/models/item/electric_hoe.json
+9d1fbb3e1d6f5f4ba6afcf96766501fb2af6c7d4 assets/indreb/models/item/electric_jetpack.json
 c29926e8913ee4d4e8c176d98c5ce3ba045698b0 assets/indreb/models/item/electric_motor.json
 7d077b2686af666e9f0a1c051048b477d4e2626e assets/indreb/models/item/electric_treetap.json
 a5c7d83926b8192700e69579d1fd73a780cbfb76 assets/indreb/models/item/electric_wrench.json
@@ -197,6 +200,7 @@ ecf501c794f3569d051f454c201335e97e4dd646 assets/indreb/models/item/foam_powder.j
 584ab9c7ee234d670ee0ff01a4ed01a81bc33a60 assets/indreb/models/item/glass_fibre_cable.json
 54c5654736b53e57377604bc86d29e8198afc651 assets/indreb/models/item/gold_cable.json
 f587e55c3b6a6b9223615f4d6acefc5a959978ee assets/indreb/models/item/gold_cable_insulated.json
+4c34748f2ba7d59ddee14270a820a0d6e08e10d7 assets/indreb/models/item/gold_casing.json
 e98fc8179c0f43910e3deaf9536d9d94ff63b20f assets/indreb/models/item/gold_plate.json
 f3e9d0686265f23014f1544a08a69ad08507d826 assets/indreb/models/item/hammer.json
 7ecd90708fe23eed57d20b579c9699851f4ffa7d assets/indreb/models/item/heat_conductor.json
@@ -209,6 +213,7 @@ b01b6acb86e7466ceaa0e17af780cd3efbc01a84 assets/indreb/models/item/hybrid_solar_
 b35a4b8f0eca285d75b0b3dadb8d72b38ce67a19 assets/indreb/models/item/iridium_drill.json
 62b40010e0ad262f1e191d2c8245f052fb025133 assets/indreb/models/item/iridium_plate.json
 ad6cf34e9331cec52cbe27c06d7519a35c200b4e assets/indreb/models/item/iridium_shard.json
+2d342003cdfb9ece5513a1663cb6dedd600f5ea6 assets/indreb/models/item/iron_casing.json
 e190997223d8d5beae85a1e5cd840c47acc778c5 assets/indreb/models/item/iron_fence.json
 e8781f40fc399f26ea8335e2b350d75f900a6cfa assets/indreb/models/item/iron_furnace.json
 165ba824c7f795a690a5c82164655d791d28e0a3 assets/indreb/models/item/iron_plate.json
@@ -286,6 +291,7 @@ ea43413a80c90b853528bdf37872ffd2cd93fcf4 assets/indreb/models/item/semifluid_gen
 b97bb6fcc7448793577935c933ed6882dd1796b2 assets/indreb/models/item/small_power_unit.json
 c5b53bd2556062f2bf06c0faacd87baeaf0bb7ef assets/indreb/models/item/solar_generator.json
 fa5a9f737e5c4ca32fe7a5675d2d950bfbb6401e assets/indreb/models/item/steel_block.json
+e640793c1585ff8c88d00daebac47a0dc357776f assets/indreb/models/item/steel_casing.json
 a4a4f9946a774ec4c805318f2f518015d0408462 assets/indreb/models/item/steel_ingot.json
 ac6efaf5cb0a7675c52085888672e9d7ff93c4b9 assets/indreb/models/item/steel_plate.json
 8571bab75f6351cd0ec6051081f5e550f951115a assets/indreb/models/item/sticky_resin.json
@@ -294,6 +300,7 @@ ac6efaf5cb0a7675c52085888672e9d7ff93c4b9 assets/indreb/models/item/steel_plate.j
 9fb5a645a41bb0ea6aa45280d8043624e4158677 assets/indreb/models/item/tin_cable.json
 6b1659a2a522ef94e2100d1c7f4a37491d39758c assets/indreb/models/item/tin_cable_insulated.json
 b3a64bcabef387a9fce1955e156ee78ef2d0984a assets/indreb/models/item/tin_can.json
+010acd2def4190224f72b2c48d780146f1fdcff9 assets/indreb/models/item/tin_casing.json
 4dfe5e9f69934f999c13f839df96819f662b108e assets/indreb/models/item/tin_ingot.json
 e97f2e55dd6eeb8355d505a9147ac89e4395bd10 assets/indreb/models/item/tin_ore.json
 b94385c9ddbba5aa84e6e0bf8a5a1df010b6a3e8 assets/indreb/models/item/tin_plate.json
@@ -562,11 +569,17 @@ f85cb8bc02cbba4c83efde104ad77e7596f01f4c data/indreb/advancements/recipes/indreb
 8f56573ced99792b57607f8ff072ba18bf1371a5 data/indreb/advancements/recipes/indreb/generators/hybrid_solar_generator.json
 49689c0fbc87c195a0a585aa8ebc14b3309b2832 data/indreb/advancements/recipes/indreb/generators/semifluid_generator.json
 0569c2ef72c7518f34c343174d1cc1923b18e187 data/indreb/advancements/recipes/indreb/generators/solar_generator.json
+b59a87c182932617bfd3efdaea2fe9972c221b61 data/indreb/advancements/recipes/indreb/hammer/bronze_casing.json
 049c0e133a3c74f1d7a7ef3b2c448efbeef15e98 data/indreb/advancements/recipes/indreb/hammer/bronze_plate.json
+00d10587becb6ce744229a96f3f5c00e84142d2f data/indreb/advancements/recipes/indreb/hammer/copper_casing.json
 2521ef0515d39e5f0615b049cf459174cf84d368 data/indreb/advancements/recipes/indreb/hammer/copper_plate.json
+b8323a868458fe8ba09035261fd056d60458ad8f data/indreb/advancements/recipes/indreb/hammer/gold_casing.json
 c703a6da162ddeaab1f8c83b96bd549dacf2e14d data/indreb/advancements/recipes/indreb/hammer/gold_plate.json
+89db04567315ebfa6229b868d76e22663228efae data/indreb/advancements/recipes/indreb/hammer/iron_casing.json
 40f9b587b4894b034328b70cddfdf5e5e7547771 data/indreb/advancements/recipes/indreb/hammer/iron_plate.json
+16b8a6386cb7ec519521fe7ded1db511e246af7c data/indreb/advancements/recipes/indreb/hammer/steel_casing.json
 8a72177810e4462ecfd40786cf74fa72ad41867f data/indreb/advancements/recipes/indreb/hammer/steel_plate.json
+200661c1ed5c5ef6ee03f0a3525ef695dc79d347 data/indreb/advancements/recipes/indreb/hammer/tin_casing.json
 1989949f8e6642656349dce1e213ec16dff3e22a data/indreb/advancements/recipes/indreb/hammer/tin_plate.json
 7ccdae1d54bf8e0fb981e2a237e4ed39d4e5bb57 data/indreb/advancements/recipes/indreb/item/advanced_circuit.json
 f15b09cc1c1361c8584d01409a78d426cff6c6c8 data/indreb/advancements/recipes/indreb/item/bronze_boots.json
@@ -592,6 +605,7 @@ cac24e07e4442d04ddc910c4efaede70f19adef2 data/indreb/advancements/recipes/indreb
 c4030ea7583286a1cdaf20aea64bba75f1cf1dbd data/indreb/advancements/recipes/indreb/item/electric/nano_saber.json
 efda4fa9b39614f09feef12b81039f2e48bcfd51 data/indreb/advancements/recipes/indreb/item/electric/quantum_saber.json
 14e398e7fc591c4c3307b20d7aeb3f1daee5719d data/indreb/advancements/recipes/indreb/item/electric/wind_meter.json
+89cfdb998295fea6a8672215ae5f0ec4edfb930a data/indreb/advancements/recipes/indreb/item/electric_jetpack.json
 6bca2ff5d6b9b3fec77aba6e963bc54698f5dcc7 data/indreb/advancements/recipes/indreb/item/electric_motor.json
 cb66abfa6eb42fafbf7ad7f4dc9f603110718aab data/indreb/advancements/recipes/indreb/item/electronic_circuit.json
 2b55699e3b9db2b50e4ab64fe9109d90aab8df80 data/indreb/advancements/recipes/indreb/item/energium_dust.json
@@ -624,6 +638,10 @@ eb82461f11bdd24997e2ff974d30902200e3e997 data/indreb/advancements/recipes/indreb
 0838a841f9d2826e799f515cc86e53d8fab2d0e3 data/indreb/advancements/recipes/indreb/item/painter_white.json
 07198736bd362925bc5c2cbc67bee9270145c5fb data/indreb/advancements/recipes/indreb/item/painter_yellow.json
 9076754addf011e3b8de8637732039a4473b9626 data/indreb/advancements/recipes/indreb/item/power_unit.json
+f5b4c09bee21956d6539da986d9f46a94815faa9 data/indreb/advancements/recipes/indreb/item/quantum_boots.json
+e5f30dcccc5e9a4f53b58a1ef5e848a20c107369 data/indreb/advancements/recipes/indreb/item/quantum_chestplate.json
+7499427aa7f2ac85edcafd7c04e0f17759c9056c data/indreb/advancements/recipes/indreb/item/quantum_helmet.json
+7ce169ebf5bcabd29782e9d51cc00f57fa564249 data/indreb/advancements/recipes/indreb/item/quantum_leggings.json
 2333fafab7acba1e63c1dc5d39f95c71e76d14e3 data/indreb/advancements/recipes/indreb/item/reinforced_foam_powder.json
 16879d2307246f51453d3180dcaceee630f73a5a data/indreb/advancements/recipes/indreb/item/rubber_boots.json
 7a409c2c8e393ed892bad49001b6e8d330c33839 data/indreb/advancements/recipes/indreb/item/scrap_box.json
@@ -1005,11 +1023,17 @@ fc9ceb3cc75e82282e23edaa2cb07dd21ba99003 data/indreb/recipes/generators/geo_gene
 dcb4f6e08880625024390a97dc216c3e4a8509c1 data/indreb/recipes/generators/hybrid_solar_generator.json
 a870afb0f27680f1a56cca328c9b02d13d0cfd09 data/indreb/recipes/generators/semifluid_generator.json
 a0ed48ed3328d974d9ae884dd4abbc0b55cc20dc data/indreb/recipes/generators/solar_generator.json
+cc184984400c2674a206b1cfebbe34f16cb488d2 data/indreb/recipes/hammer/bronze_casing.json
 589f4e420c078b8e801f06a9bdb6b187254facbd data/indreb/recipes/hammer/bronze_plate.json
+c29cd0d20f48bab2dff517c78776e03ea8963863 data/indreb/recipes/hammer/copper_casing.json
 65572c6d8455edac8769c2dc9f007fdc4fc3d702 data/indreb/recipes/hammer/copper_plate.json
+364ca0d87771a1e8e0d3c49094f9c3292ce9f050 data/indreb/recipes/hammer/gold_casing.json
 db1211fbf036ac314803855fbc71f31ca1f24018 data/indreb/recipes/hammer/gold_plate.json
+6868a01030e8464172fe34557126a2837ceee8d7 data/indreb/recipes/hammer/iron_casing.json
 e24e8343c0287940ec05675e7283ad2cf5b4285c data/indreb/recipes/hammer/iron_plate.json
+ce79c506d6303165547da7cc31fa6d9496f1064d data/indreb/recipes/hammer/steel_casing.json
 8cfd612a94b257417b7275ba355b1725e25f80f4 data/indreb/recipes/hammer/steel_plate.json
+f50906c781af353a563ccfff807407967591c923 data/indreb/recipes/hammer/tin_casing.json
 e4009bb143803ecf3d276f530e6178a8d1843b4c data/indreb/recipes/hammer/tin_plate.json
 5e24b6295c546800b618e1bf4096a48bd23f3cfa data/indreb/recipes/item/advanced_circuit.json
 4ece7570e3d8c56699ba5d65d1b2d7beecb91ccf data/indreb/recipes/item/bronze_boots.json
@@ -1035,6 +1059,7 @@ d99d64adb7c340c20f183e38d475f1f14a861157 data/indreb/recipes/item/electric/iridi
 cf45fecb7d35599db66c1b4e18e75fe4df2965a4 data/indreb/recipes/item/electric/nano_saber.json
 35453b3043945011d1f64ccb54fc2b60ccfb8aee data/indreb/recipes/item/electric/quantum_saber.json
 c67f8c71784c7645f2d58ea41595bb8486a5a02f data/indreb/recipes/item/electric/wind_meter.json
+76dda6f09611cd78a40e82cd8f97e88c5445f2b0 data/indreb/recipes/item/electric_jetpack.json
 516c9d5be16739e422cde4958c55a23c5fac0d90 data/indreb/recipes/item/electric_motor.json
 0980b3d18fb4399d470e86d9087812de29f7ef0b data/indreb/recipes/item/electronic_circuit.json
 27a57fb54b1377d2976b420770ea53630caca986 data/indreb/recipes/item/energium_dust.json
@@ -1067,6 +1092,10 @@ bf8418c9c463784d76182dec5a78d3c691fe9eba data/indreb/recipes/item/painter_red.js
 57d05820d4ffe32b5c08f44847ba1406ef65e615 data/indreb/recipes/item/painter_white.json
 507de395a28c9c8005a930298c98adfbb7e186c8 data/indreb/recipes/item/painter_yellow.json
 efe4103f05b27adee76e097751b1da46e653a481 data/indreb/recipes/item/power_unit.json
+db786a965b24bd2882b1a6c7df952e774ce22c8b data/indreb/recipes/item/quantum_boots.json
+ad494bd25f769a5f3257e5c284ade9a87f0c42f7 data/indreb/recipes/item/quantum_chestplate.json
+702cabb6da891597da51bfec2790ac7b583e4734 data/indreb/recipes/item/quantum_helmet.json
+309467ec5cbd1d4c69e3896f95c394eeea1f4f31 data/indreb/recipes/item/quantum_leggings.json
 af9c1d8e2e123668f94a4f7ddf63daf91cdb1830 data/indreb/recipes/item/reinforced_foam_powder.json
 d5dcf938b5f5e8be5c67d38fed0d4d0cc38fd3ff data/indreb/recipes/item/rubber_boots.json
 df8aa55c35275e3e36f604e150776f9db8bd8f06 data/indreb/recipes/item/sawdust_paper.json
@@ -1094,7 +1123,7 @@ b50b590958a7b637ec81dac89dc4d18f072fc353 data/indreb/recipes/machines/alloy_smel
 455bcfbc522b89d917e7af46fab145368292f43c data/indreb/recipes/machines/iron_furnace.json
 e80d84eaf4d249f6ae23d76b6e9a2dc113284fec data/indreb/recipes/machines/recycler.json
 c50e5d9aa1008a90eb34890e9ecf3c987d547bd5 data/indreb/recipes/machines/sawmill.json
-ec3ca66729a3796fc6b94631efe7b9b6a3d5732d data/indreb/recipes/recycling/scrap.json
+9dbb01603f600e03556ae0e6cdfb1c8a2fa1ae68 data/indreb/recipes/recycling/scrap.json
 69551e33c9d0887e792685f4f9c4d77e18d42d08 data/indreb/recipes/sawing/acacia_log_acacia_planks.json
 5d87dcd403274e5ecf29a27b264422e1d1eedac8 data/indreb/recipes/sawing/armour/leather_boots_leather.json
 ed0e8c6a15e745c29c0957746be210f275c01eb9 data/indreb/recipes/sawing/armour/leather_chestplate_leather.json

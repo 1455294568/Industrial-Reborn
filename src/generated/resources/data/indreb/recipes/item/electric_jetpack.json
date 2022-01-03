@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "iai",
+    "ibi",
+    "g g"
+  ],
+  "key": {
+    "i": {
+      "item": "indreb:iron_casing"
+    },
+    "a": {
+      "item": "indreb:advanced_circuit"
+    },
+    "b": {
+      "item": "indreb:battery_box"
+    },
+    "g": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "indreb:electric_jetpack"
+  }
+}

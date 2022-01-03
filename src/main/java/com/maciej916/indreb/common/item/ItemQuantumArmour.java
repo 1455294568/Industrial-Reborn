@@ -50,16 +50,6 @@ public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
 
     }
 
-    private float getChargeRatio(ItemStack stack) {
-        LazyOptionalHelper<IEnergy> cap = CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY);
-        return cap.getIfPresentElse(e -> (float) e.energyStored() / e.maxEnergy(), 0f);
-    }
-
-    @Override
-    public int getBarWidth(ItemStack pStack) {
-        return Math.round(13.0F - ((1 - getChargeRatio(pStack)) * 13.0F));
-    }
-
     @SubscribeEvent(priority = EventPriority.LOW)
     public void onEntityLivingFallEvent(LivingFallEvent event) {
         if (event.getEntity() instanceof Player player) {
@@ -113,7 +103,12 @@ public class ItemQuantumArmour extends ItemElectricArmour implements IJetpack {
                     if (nightvision && energy.energyStored() > 1) {
                         energy.consumeEnergy(1, false);
                         BlockPos blockpos = Minecraft.getInstance().getCameraEntity().blockPosition();
-                        int skylight = Minecraft.getInstance().level.getLightEngine().getRawBrightness(blockpos, 0);//.getBrightness(LightLayer.BLOCK, blockpos);
+                        int skylight;
+                        if (Minecraft.getInstance().level.isNight()) {
+                            skylight = Minecraft.getInstance().level.getBrightness(LightLayer.BLOCK, blockpos);
+                        } else {
+                            skylight = Minecraft.getInstance().level.getLightEngine().getRawBrightness(blockpos, 0);
+                        }
                         if (skylight > 8) {
                             player.removeEffect(MobEffects.NIGHT_VISION);
                             player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0, true, true));

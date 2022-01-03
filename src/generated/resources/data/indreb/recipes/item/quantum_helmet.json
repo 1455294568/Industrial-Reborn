@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "rnr",
+    "ili",
+    "b b"
+  ],
+  "key": {
+    "r": {
+      "item": "indreb:reinforced_glass"
+    },
+    "n": {
+      "item": "indreb:nano_helmet"
+    },
+    "i": {
+      "item": "indreb:iridium_plate"
+    },
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    },
+    "b": {
+      "item": "indreb:advanced_circuit"
+    }
+  },
+  "result": {
+    "item": "indreb:quantum_helmet"
+  }
+}

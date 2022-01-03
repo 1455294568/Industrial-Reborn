@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "ana",
+    "ili",
+    "iji"
+  ],
+  "key": {
+    "a": {
+      "item": "indreb:advanced_alloy"
+    },
+    "n": {
+      "item": "indreb:nano_chestplate"
+    },
+    "i": {
+      "item": "indreb:iridium_plate"
+    },
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    },
+    "j": {
+      "item": "indreb:electric_jetpack"
+    }
+  },
+  "result": {
+    "item": "indreb:quantum_chestplate"
+  }
+}

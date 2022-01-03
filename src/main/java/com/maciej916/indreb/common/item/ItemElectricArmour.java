@@ -27,6 +27,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -47,7 +48,7 @@ public abstract class ItemElectricArmour extends IndRebArmour implements IElectr
     protected final EnumEnergyType energyType;
     protected final EnergyTier energyTier;
 
-    public ItemElectricArmour(EquipmentSlot pSlot, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier, ModArmorMaterials material) {
+    public ItemElectricArmour(EquipmentSlot pSlot, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier, ArmorMaterial material) {
         super(material, pSlot);
         this.energyStored = energyStored;
         this.maxEnergy = maxEnergy;
@@ -83,6 +84,11 @@ public abstract class ItemElectricArmour extends IndRebArmour implements IElectr
     @Override
     public boolean isBarVisible(ItemStack pStack) {
         return true;
+    }
+
+    @Override
+    public int getBarWidth(ItemStack pStack) {
+        return Math.round(13.0F - ((1 - getChargeRatio(pStack)) * 13.0F));
     }
 
     @Override
@@ -244,5 +250,10 @@ public abstract class ItemElectricArmour extends IndRebArmour implements IElectr
                 return 0.15D;
         }
         return 0.0D;
+    }
+
+    private float getChargeRatio(ItemStack stack) {
+        LazyOptionalHelper<IEnergy> cap = CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY);
+        return cap.getIfPresentElse(e -> (float) e.energyStored() / e.maxEnergy(), 0f);
     }
 }

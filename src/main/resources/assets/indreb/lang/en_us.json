@@ -151,6 +151,13 @@
   "item.indreb.steel_plate": "Steel Plate",
   "item.indreb.iridium_plate": "Iridium Plate",
 
+  "item.indreb.copper_casing": "Copper Casing",
+  "item.indreb.tin_casing": "Tin Casing",
+  "item.indreb.iron_casing": "Iron Casing",
+  "item.indreb.gold_casing": "Gold Casing",
+  "item.indreb.bronze_casing": "Bronze Casing",
+  "item.indreb.steel_casing": "Steel Casing",
+
   "item.indreb.coal_dust": "Coal Dust",
   "item.indreb.diamond_dust": "Diamond Dust",
   "item.indreb.silver_dust": "Silver Dust",
@@ -193,6 +200,8 @@
   "item.indreb.quantum_leggings": "Quantum Leggings",
   "item.indreb.quantum_boots": "Quantum Boots",
   "item.indreb.quantum_saber": "Quantum Saber",
+
+  "item.indreb.electric_jetpack": "Electric Jetpack",
 
   "item.indreb.energium_dust": "Energium Dust",
 

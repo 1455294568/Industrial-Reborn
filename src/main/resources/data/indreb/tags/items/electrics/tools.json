@@ -15,7 +15,9 @@
 
     "indreb:electric_hoe",
     "indreb:wind_meter",
-    "indreb:multi_tool"
+    "indreb:multi_tool",
+
+    "indreb:electric_jetpack"
   ]
 }
 

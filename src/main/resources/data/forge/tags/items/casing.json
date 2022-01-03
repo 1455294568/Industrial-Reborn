@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:casings/iron",
+    "#forge:casings/tin",
+    "#forge:casings/copper",
+    "#forge:casings/gold",
+    "#forge:casings/bronze",
+    "#forge:casings/steel"
+  ]
+}

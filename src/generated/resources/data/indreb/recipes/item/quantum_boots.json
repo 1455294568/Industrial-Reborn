@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "ini",
+    "rlr"
+  ],
+  "key": {
+    "i": {
+      "item": "indreb:iridium_plate"
+    },
+    "n": {
+      "item": "indreb:nano_boots"
+    },
+    "r": {
+      "item": "indreb:rubber_boots"
+    },
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    }
+  },
+  "result": {
+    "item": "indreb:quantum_boots"
+  }
+}

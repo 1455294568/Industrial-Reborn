@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.item.*;
+import com.maciej916.indreb.common.item.JetPack.ItemElectricJetPack;
 import com.maciej916.indreb.common.item.base.DummyItem;
 import com.maciej916.indreb.common.item.base.EnergyStorageItem;
 import com.maciej916.indreb.common.item.base.ToolItem;
@@ -83,6 +84,13 @@ public final class ModItems {
     public static Item STEEL_PLATE;
     public static Item IRIDIUM_PLATE;
 
+    public static Item COPPER_CASING;
+    public static Item TIN_CASING;
+    public static Item IRON_CASING;
+    public static Item GOLD_CASING;
+    public static Item BRONZE_CASING;
+    public static Item STEEL_CASING;
+
     public static Item CARBON_FIBERS;
     public static Item COMBINED_CARBON_FIBERS;
     public static Item CARBON_PLATE;
@@ -114,6 +122,8 @@ public final class ModItems {
     public static Item QUANTUM_LEGGINGS;
     public static Item QUANTUM_BOOTS;
     public static Item QUANTUM_SABER;
+
+    public static Item ELECTRIC_JETPACK;
 
     public static Item SMALL_POWER_UNIT;
     public static Item POWER_UNIT;
@@ -242,6 +252,13 @@ public final class ModItems {
         STEEL_PLATE = registerItem(new ItemBasic(), "steel_plate");
         IRIDIUM_PLATE = registerItem(new IridiumItem(), "iridium_plate");
 
+        COPPER_CASING = registerItem(new ItemBasic(), "copper_casing");
+        TIN_CASING = registerItem(new ItemBasic(), "tin_casing");
+        IRON_CASING = registerItem(new ItemBasic(), "iron_casing");
+        GOLD_CASING = registerItem(new ItemBasic(), "gold_casing");
+        BRONZE_CASING = registerItem(new ItemBasic(), "bronze_casing");
+        STEEL_CASING = registerItem(new ItemBasic(), "steel_casing");
+
         CARBON_FIBERS = registerItem(new ItemBasic(), "carbon_fibers");
         COMBINED_CARBON_FIBERS = registerItem(new ItemBasic(), "combined_carbon_fibers");
         CARBON_PLATE = registerItem(new ItemBasic(), "carbon_plate");
@@ -273,6 +290,8 @@ public final class ModItems {
         QUANTUM_LEGGINGS = registerItem(new ItemQuantumArmour(EquipmentSlot.LEGS, 0, 10000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_leggings");
         QUANTUM_BOOTS = registerItem(new ItemQuantumArmour(EquipmentSlot.FEET, 0, 10000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_boots");
         QUANTUM_SABER = registerItem(new ItemQuantumsaber(1, -3F, 0, 10000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_saber");
+
+        ELECTRIC_JETPACK = registerItem(new ItemElectricJetPack(EquipmentSlot.CHEST, 0, 30000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "electric_jetpack");
 
         SMALL_POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "small_power_unit");
         POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "power_unit");
