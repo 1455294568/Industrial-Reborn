@@ -9,18 +9,26 @@ import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
+import com.maciej916.indreb.common.interfaces.item.ISpecialArmor;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
+import com.maciej916.indreb.common.util.Keyboard;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -28,52 +36,25 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class ItemNanoArmour extends IndRebArmour implements IElectricItem {
-
-    private static final UUID[] ARMOR_MODIFIER_UUID_PER_SLOT = new UUID[]{UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
-
-    private final int energyStored;
-    private final int maxEnergy;
-    private final EnumEnergyType energyType;
-    private final EnergyTier energyTier;
+public class ItemNanoArmour extends ItemElectricArmour{
 
     public ItemNanoArmour(EquipmentSlot pSlot, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier) {
-        super(ModArmorMaterials.NANO, pSlot);
-        this.energyStored = energyStored;
-        this.maxEnergy = maxEnergy;
-        this.energyType = energyType;
-        this.energyTier = energyTier;
-    }
+        super(pSlot, energyStored, maxEnergy, energyType, energyTier, ModArmorMaterials.NANO);
 
-    @Nullable
-    @Override
-    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
-        return new CapEnergyStorage(energyStored, maxEnergy, energyTier.getBasicTransfer(), energyTier.getBasicTransfer(), energyType);
-    }
-
-    public EnumEnergyType getEnergyType() {
-        return energyType;
-    }
-
-    @Override
-    public IEnergy getEnergy(ItemStack stack) {
-        return CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).getValue();
-    }
-
-    @Override
-    public EnergyTier getEnergyTier() {
-        return energyTier;
-    }
-
-    @Override
-    public boolean isRepairable(ItemStack stack) {
-        return false;
+        if (pSlot == EquipmentSlot.FEET) {
+            MinecraftForge.EVENT_BUS.register(this);
+        }
     }
 
     private float getChargeRatio(ItemStack stack) {
@@ -91,45 +72,6 @@ public class ItemNanoArmour extends IndRebArmour implements IElectricItem {
         return Math.round(13.0F - ((1 - getChargeRatio(pStack)) * 13.0F));
     }
 
-
-    @Override
-    public void fillItemCategory(CreativeModeTab tab, NonNullList<ItemStack> list) {
-        if (allowdedIn(tab)) {
-            list.add(new ItemStack(this));
-
-            ItemStack full = new ItemStack(this);
-            LazyOptionalHelper<IEnergy> cap = CapabilityUtil.getCapabilityHelper(full, ModCapabilities.ENERGY);
-            cap.getIfPresent(e -> e.setEnergy(e.maxEnergy()));
-
-            list.add(full);
-        }
-    }
-
-    @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-
-        pTooltipComponents.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(energyTier.getLang().getTranslationKey()).withStyle(energyTier.getColor())
-        ));
-
-        int energyStored = CapabilityUtil.getCapabilityHelper(pStack, ModCapabilities.ENERGY).getIfPresentElse(IEnergy::energyStored, 0);
-        pTooltipComponents.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energyStored)).withStyle(energyTier.getColor()),
-                new TextComponent(" / ").withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(maxEnergy)).withStyle(energyTier.getColor())
-        ));
-
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
-    }
-
-
-    @Override
-    public boolean isValidRepairItem(ItemStack pToRepair, ItemStack pRepair) {
-        return false;
-    }
-
 //    @Override
 //    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
 //        return false;
@@ -140,79 +82,84 @@ public class ItemNanoArmour extends IndRebArmour implements IElectricItem {
 //        return false;
 //    }
 
-    @Override
-    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
-        return false;
+    @SubscribeEvent(priority = EventPriority.LOW)
+    public void onEntityLivingFallEvent(LivingFallEvent event) {
+        if (event.getEntity() instanceof Player player) {
+            var stack = player.getItemBySlot(EquipmentSlot.FEET);
+            if (stack != null && stack.getItem() == this) {
+                stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
+                    int fallDamage = (int)event.getDistance() - 3;
+                    if (fallDamage >= 8)
+                        return;
+                    int energyCost = (getEnergyPerDamage() * fallDamage);
+                    if (energy.energyStored() >= energyCost) {
+                        energy.consumeEnergy(energyCost, false);
+                        event.setCanceled(true);
+                    }
+                });
+            }
+        }
     }
 
     @Override
-    public boolean isDamageable(ItemStack stack) {
-        return false;
-    }
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
+        CompoundTag nbtData = stack.getOrCreateTag();
 
-    @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
-        if (stack.getItem().equals(this)) {
-            if (slot == getSlot()) {
-                CompoundTag tag = stack.getTag();
-                boolean active = false;
+        if (this.getSlot() == EquipmentSlot.HEAD) {
+            stack.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
 
-                if (tag != null && tag.getAllKeys().contains("active")) {
-                    active = tag.getBoolean("active");
-                } else {
-                    IEnergy energy = getEnergy(stack);
-                    if (energy != null) {
-                        active = energy.energyStored() > 0;
+                boolean nightvision = nbtData.getBoolean("Nightvision");
+                byte toggleTimer = nbtData.getByte("toggleTimer");
+
+                if (Keyboard.getInstance().isAltKeyDown(player)
+                        && Keyboard.getInstance().isModeSwitchKeyDown(player)
+                        && toggleTimer == 0) {
+                    toggleTimer = 10;
+                    nightvision = !nightvision;
+                    nbtData.putBoolean("Nightvision", nightvision);
+                }
+
+                if (toggleTimer > 0) {
+                    toggleTimer = (byte) (toggleTimer - 1);
+                    nbtData.putByte("toggleTimer", toggleTimer);
+                }
+
+                if (nightvision && energy.energyStored() > 1) {
+                    energy.consumeEnergy(1, false);
+                    BlockPos blockpos = Minecraft.getInstance().getCameraEntity().blockPosition();
+                    int skylight = Minecraft.getInstance().level.getLightEngine().getRawBrightness(blockpos, 0);//.getBrightness(LightLayer.BLOCK, blockpos);
+                    if (skylight > 8) {
+                        player.removeEffect(MobEffects.NIGHT_VISION);
+                        player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 100, 0, true, true));
+                    } else {
+                        player.removeEffect(MobEffects.BLINDNESS);
+                        player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 300, 0, true, true));
                     }
                 }
-
-                Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
-                modifiers.putAll(super.getAttributeModifiers(slot, stack));
-
-                modifiers.removeAll(Attributes.ARMOR);
-                UUID uuid = ARMOR_MODIFIER_UUID_PER_SLOT[slot.getIndex()];
-
-                if (active) {
-                    modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", getDefense(), AttributeModifier.Operation.ADDITION));
-                } else {
-                    modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", 0, AttributeModifier.Operation.ADDITION));
-                }
-
-                return modifiers;
-            }
-        }
-        return super.getAttributeModifiers(slot, stack);
-    }
-
-    @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int p_41407_, boolean p_41408_) {
-        if (!level.isClientSide()) {
-            if (level.getGameTime() % 20 == 0) {
-                IEnergy energy = getEnergy(stack);
-                if (energy != null) {
-                    CompoundTag tag = stack.getOrCreateTag();
-                    tag.putBoolean("active", energy.energyStored() > 0);
-                }
-            }
-        }
-    }
-
-    @org.jetbrains.annotations.Nullable
-    @Override
-    public CompoundTag getShareTag(ItemStack stack) {
-        CompoundTag nbt = stack.getOrCreateTag();
-        int energyStored = CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).getIfPresentElse(IEnergy::energyStored, 0);
-        nbt.putInt("energyStored", energyStored);
-        return nbt;
-    }
-
-    @Override
-    public void readShareTag(ItemStack stack, @org.jetbrains.annotations.Nullable CompoundTag nbt) {
-        if (nbt != null) {
-            CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).ifPresent(iEnergy -> {
-                iEnergy.setEnergy(nbt.getInt("energyStored"));
             });
         }
-        super.readShareTag(stack, nbt);
+    }
+
+    @Override
+    public ArmorProperties getProperties(LivingEntity player, @NotNull ItemStack armor, DamageSource source, float damage, int slot) {
+        if (source == DamageSource.FALL) {
+            int energyPerDamage = getEnergyPerDamage();
+            int damageLimit = Integer.MAX_VALUE;
+            if (energyPerDamage > 0)
+                damageLimit = (int) Math.min(damageLimit, 25.0D * this.getEnergy(armor).energyStored() / energyPerDamage);
+
+            return new ISpecialArmor.ArmorProperties(10, (damage < 8.0D) ? 1.0D : 0.875D, damageLimit);
+        }
+        return super.getProperties(player, armor, source, damage, slot);
+    }
+
+    @Override
+    public double getDamageAbsorptionRatio() {
+        return 0.9D;
+    }
+
+    @Override
+    public int getEnergyPerDamage() {
+        return 5000;
     }
 }
