@@ -1041,7 +1041,7 @@ d99d64adb7c340c20f183e38d475f1f14a861157 data/indreb/recipes/item/electric/iridi
 cf45fecb7d35599db66c1b4e18e75fe4df2965a4 data/indreb/recipes/item/electric/nano_saber.json
 35453b3043945011d1f64ccb54fc2b60ccfb8aee data/indreb/recipes/item/electric/quantum_saber.json
 c67f8c71784c7645f2d58ea41595bb8486a5a02f data/indreb/recipes/item/electric/wind_meter.json
-76dda6f09611cd78a40e82cd8f97e88c5445f2b0 data/indreb/recipes/item/electric_jetpack.json
+20ead92e1b88d8484536946df83576caa74c169d data/indreb/recipes/item/electric_jetpack.json
 516c9d5be16739e422cde4958c55a23c5fac0d90 data/indreb/recipes/item/electric_motor.json
 0980b3d18fb4399d470e86d9087812de29f7ef0b data/indreb/recipes/item/electronic_circuit.json
 27a57fb54b1377d2976b420770ea53630caca986 data/indreb/recipes/item/energium_dust.json
@@ -1105,7 +1105,7 @@ b50b590958a7b637ec81dac89dc4d18f072fc353 data/indreb/recipes/machines/alloy_smel
 455bcfbc522b89d917e7af46fab145368292f43c data/indreb/recipes/machines/iron_furnace.json
 e80d84eaf4d249f6ae23d76b6e9a2dc113284fec data/indreb/recipes/machines/recycler.json
 c50e5d9aa1008a90eb34890e9ecf3c987d547bd5 data/indreb/recipes/machines/sawmill.json
-ec3ca66729a3796fc6b94631efe7b9b6a3d5732d data/indreb/recipes/recycling/scrap.json
+15d1082ef93924db6cfd51ded4d844430452abda data/indreb/recipes/recycling/scrap.json
 69551e33c9d0887e792685f4f9c4d77e18d42d08 data/indreb/recipes/sawing/acacia_log_acacia_planks.json
 5d87dcd403274e5ecf29a27b264422e1d1eedac8 data/indreb/recipes/sawing/armour/leather_boots_leather.json
 ed0e8c6a15e745c29c0957746be210f275c01eb9 data/indreb/recipes/sawing/armour/leather_chestplate_leather.json
