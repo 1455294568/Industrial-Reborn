@@ -84,13 +84,6 @@ public final class ModItems {
     public static Item STEEL_PLATE;
     public static Item IRIDIUM_PLATE;
 
-    public static Item COPPER_CASING;
-    public static Item TIN_CASING;
-    public static Item IRON_CASING;
-    public static Item GOLD_CASING;
-    public static Item BRONZE_CASING;
-    public static Item STEEL_CASING;
-
     public static Item CARBON_FIBERS;
     public static Item COMBINED_CARBON_FIBERS;
     public static Item CARBON_PLATE;
@@ -251,13 +244,6 @@ public final class ModItems {
         BRONZE_PLATE = registerItem(new ItemBasic(), "bronze_plate");
         STEEL_PLATE = registerItem(new ItemBasic(), "steel_plate");
         IRIDIUM_PLATE = registerItem(new IridiumItem(), "iridium_plate");
-
-        COPPER_CASING = registerItem(new ItemBasic(), "copper_casing");
-        TIN_CASING = registerItem(new ItemBasic(), "tin_casing");
-        IRON_CASING = registerItem(new ItemBasic(), "iron_casing");
-        GOLD_CASING = registerItem(new ItemBasic(), "gold_casing");
-        BRONZE_CASING = registerItem(new ItemBasic(), "bronze_casing");
-        STEEL_CASING = registerItem(new ItemBasic(), "steel_casing");
 
         CARBON_FIBERS = registerItem(new ItemBasic(), "carbon_fibers");
         COMBINED_CARBON_FIBERS = registerItem(new ItemBasic(), "combined_carbon_fibers");

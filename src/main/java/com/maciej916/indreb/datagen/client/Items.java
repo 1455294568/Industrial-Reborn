@@ -27,7 +27,6 @@ public class Items extends ItemModelProvider {
         registerRods();
         registerCrushed();
         registerPlates();
-        registerCasing();
         registerDusts();
         registerPainter();
         registerConstructionFoam();
@@ -107,15 +106,6 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.TIN_PLATE, "plate/tin");
         createGeneratedTexture(ModItems.STEEL_PLATE, "plate/steel");
         createGeneratedTexture(ModItems.COPPER_PLATE, "plate/copper");
-    }
-
-    protected void registerCasing() {
-        createGeneratedTexture(ModItems.BRONZE_CASING, "casing/bronze");
-        createGeneratedTexture(ModItems.GOLD_CASING, "casing/gold");
-        createGeneratedTexture(ModItems.IRON_CASING, "casing/iron");
-        createGeneratedTexture(ModItems.TIN_CASING, "casing/tin");
-        createGeneratedTexture(ModItems.STEEL_CASING, "casing/steel");
-        createGeneratedTexture(ModItems.COPPER_CASING, "casing/copper");
     }
 
     protected void registerDusts() {

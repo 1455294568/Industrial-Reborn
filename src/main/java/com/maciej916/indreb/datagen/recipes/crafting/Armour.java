@@ -213,7 +213,7 @@ public class Armour extends RecipeProvider {
                 .pattern("iai")
                 .pattern("ibi")
                 .pattern("g g")
-                .define('i', ModItems.IRON_CASING)
+                .define('i', ModItems.IRON_PLATE)
                 .define('a', ModItems.ADVANCED_CIRCUIT)
                 .define('b', ModBlocks.BATTERY_BOX)
                 .define('g', Items.GLOWSTONE_DUST)
