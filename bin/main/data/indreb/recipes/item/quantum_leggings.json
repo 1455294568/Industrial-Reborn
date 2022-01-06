@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "blb",
+    "ini",
+    "g g"
+  ],
+  "key": {
+    "b": {
+      "item": "indreb:basic_machine_casing"
+    },
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    },
+    "i": {
+      "item": "indreb:iridium_plate"
+    },
+    "n": {
+      "item": "indreb:nano_leggings"
+    },
+    "g": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "indreb:quantum_leggings"
+  }
+}

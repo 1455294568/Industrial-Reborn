@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/quantum_leggings"
+    ]
+  },
+  "criteria": {
+    "nano_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:nano_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "lapotron_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lapotron_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "iridium_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iridium_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/quantum_leggings"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nano_leggings",
+      "lapotron_crystal",
+      "iridium_plate",
+      "has_the_recipe"
+    ]
+  ]
+}

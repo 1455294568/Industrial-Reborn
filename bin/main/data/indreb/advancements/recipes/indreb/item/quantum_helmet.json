@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/quantum_helmet"
+    ]
+  },
+  "criteria": {
+    "nano_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:nano_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "lapotron_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lapotron_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "advanced_circuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      }
+    },
+    "iridium_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iridium_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "reinforced_glass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_glass"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/quantum_helmet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nano_helmet",
+      "lapotron_crystal",
+      "advanced_circuit",
+      "iridium_plate",
+      "reinforced_glass",
+      "has_the_recipe"
+    ]
+  ]
+}
